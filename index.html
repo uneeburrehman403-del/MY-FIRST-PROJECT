@@ -1,1 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uneeb ur Rehman | Web Developer</title>
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0f19;
+      color: white;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #0b0f19;
+      border-bottom: 1px solid #222938;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #bbb;
+      text-decoration: none;
+      margin-left: 25px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 80px);
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #6c63ff;
+    }
+
+    .hero p {
+      color: #aaa;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #6c63ff;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      opacity: 0.9;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 45px;
+    }
+
+    .about {
+      max-width: 750px;
+      margin: auto;
+      text-align: center;
+      color: #aaa;
+      font-size: 18px;
+    }
+
+    .cards {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #121827;
+      padding: 30px;
+      border: 1px solid #222938;
+      border-radius: 14px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #6c63ff;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #999;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #222938;
+      color: #777;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        padding: 15px 5%;
+      }
+
+      nav a {
+        margin-left: 10px;
+        font-size: 14px;
+      }
+
+      section {
+        padding: 60px 5%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">Uneeb.</div>
+
+    <div>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Hi, I'm <span>Uneeb ur Rehman</span></h1>
+
+      <p>
+        Beginner Web Developer creating modern and responsive websites.
+      </p>
+
+      <a href="#services" class="btn">
+        Explore My Work
+      </a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about">
+      <p>
+        I'm learning web development and building websites with
+        HTML and CSS. I'm passionate about creating clean,
+        simple and user-friendly websites.
+      </p>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="section-title">What I Can Do</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>🌐 Website Design</h3>
+        <p>
+          Clean and modern websites for personal projects
+          and small businesses.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>📱 Responsive Design</h3>
+        <p>
+          Websites that work nicely on phones, tablets
+          and computers.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🎨 Landing Pages</h3>
+        <p>
+          Simple landing pages for products, services
+          and online projects.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="section-title">Let's Work Together</h2>
+
+    <p>
+      Have a project in mind? Feel free to contact me.
+    </p>
+
+    <a href="mailto:your@email.com" class="btn">
+      Contact Me
+    </a>
+  </section>
+
+  <footer>
+    © 2026 Uneeb ur Rehman. All rights reserved.
+  </footer>
+
+</body>
+</html>
