@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Urban Bites | Delicious Food</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 8%;
+      background: #111;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      margin-left: 25px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #111, #292929);
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 80px);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #ff9f1c;
+    }
+
+    .hero p {
+      color: #bbb;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #ff9f1c;
+      color: #111;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 45px;
+    }
+
+    .menu {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .food {
+      background: #1c1c1c;
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid #333;
+      transition: 0.3s;
+    }
+
+    .food:hover {
+      transform: translateY(-7px);
+      border-color: #ff9f1c;
+    }
+
+    .food h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .food p {
+      color: #999;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      color: #ff9f1c;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .about {
+      max-width: 750px;
+      margin: auto;
+      text-align: center;
+      color: #aaa;
+      font-size: 18px;
+    }
+
+    .contact {
+      text-align: center;
+      background: #191919;
+    }
+
+    .contact p {
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+      border-top: 1px solid #333;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        padding: 15px 5%;
+      }
+
+      nav a {
+        margin-left: 10px;
+        font-size: 14px;
+      }
+
+      .menu {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">🍔 Urban Bites</div>
+
+    <div>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-content">
+
+      <h1>Fresh Food.<br><span>Big Flavour.</span></h1>
+
+      <p>
+        Delicious meals made fresh for you every day.
+      </p>
+
+      <a href="#menu" class="btn">
+        View Our Menu
+      </a>
+
+    </div>
+  </section>
+
+
+  <section id="menu">
+
+    <h2 class="title">Our Popular Menu</h2>
+
+    <div class="menu">
+
+      <div class="food">
+        <h3>🍔 Classic Burger</h3>
+        <p>
+          Juicy beef patty, fresh vegetables and our special sauce.
+        </p>
+        <div class="price">$8.99</div>
+      </div>
+
+      <div class="food">
+        <h3>🍕 Cheese Pizza</h3>
+        <p>
+          Crispy crust topped with rich tomato sauce and cheese.
+        </p>
+        <div class="price">$10.99</div>
+      </div>
+
+      <div class="food">
+        <h3>🍟 Loaded Fries</h3>
+        <p>
+          Crispy fries loaded with cheese and delicious toppings.
+        </p>
+        <div class="price">$6.99</div>
+      </div>
+
+      <div class="food">
+        <h3>🌮 Chicken Tacos</h3>
+        <p>
+          Soft tacos filled with seasoned chicken and fresh salsa.
+        </p>
+        <div class="price">$7.99</div>
+      </div>
+
+      <div class="food">
+        <h3>🥤 Fresh Shake</h3>
+        <p>
+          A creamy and refreshing shake made fresh to order.
+        </p>
+        <div class="price">$4.99</div>
+      </div>
+
+      <div class="food">
+        <h3>🍰 Chocolate Cake</h3>
+        <p>
+          Rich chocolate cake for the perfect sweet ending.
+        </p>
+        <div class="price">$5.99</div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="about">
+
+    <h2 class="title">About Urban Bites</h2>
+
+    <div class="about">
+
+      <p>
+        At Urban Bites, we believe great food brings people together.
+        Our meals are prepared with fresh ingredients and served
+        with a lot of passion.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section id="contact" class="contact">
+
+    <h2 class="title">Visit Us</h2>
+
+    <p>
+      📍 Main Street, Your City
+    </p>
+
+    <p>
+      📞 +00 123 456 789
+    </p>
+
+    <a href="mailto:hello@example.com" class="btn">
+      Contact Restaurant
+    </a>
+
+  </section>
+
+
+  <footer>
+    © 2026 Urban Bites. All rights reserved.
+  </footer>
+
+</body>
+</html>
