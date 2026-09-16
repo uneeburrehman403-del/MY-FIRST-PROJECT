@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MoneyTrack | Personal Finance Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1020;
+            color: white;
+            min-height: 100vh;
+            transition: 0.3s;
+        }
+
+        body.light {
+            background: #f4f6fb;
+            color: #111827;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 70px;
+            padding: 0 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #11182b;
+            border-bottom: 1px solid #26314b;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        body.light nav {
+            background: white;
+            border-color: #e5e7eb;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4ade80;
+        }
+
+        .theme-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: #202a43;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        body.light .theme-btn {
+            background: #eef2ff;
+            color: #111827;
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px 40px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            color: #4ade80;
+        }
+
+        .hero p {
+            color: #9ca8bd;
+            font-size: 17px;
+        }
+
+        body.light .hero p {
+            color: #667085;
+        }
+
+        /* CONTAINER */
+
+        .container {
+            width: 86%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* SUMMARY */
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .summary-card {
+            background: #11182b;
+            border: 1px solid #26314b;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        body.light .summary-card {
+            background: white;
+            border-color: #e5e7eb;
+        }
+
+        .summary-card h3 {
+            color: #9ca8bd;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .amount {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .income {
+            color: #4ade80;
+        }
+
+        .expense {
+            color: #fb7185;
+        }
+
+        /* MAIN GRID */
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 25px;
+            padding-bottom: 70px;
+        }
+
+        .panel {
+            background: #11182b;
+            border: 1px solid #26314b;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        body.light .panel {
+            background: white;
+            border-color: #e5e7eb;
+        }
+
+        .panel h2 {
+            margin-bottom: 20px;
+        }
+
+        /* FORM */
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            color: #9ca8bd;
+            font-size: 14px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 9px;
+            border: 1px solid #33405c;
+            background: #0c1324;
+            color: white;
+            outline: none;
+        }
+
+        body.light input,
+        body.light select {
+            background: #f8fafc;
+            color: #111827;
+            border-color: #d0d5dd;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #4ade80;
+        }
+
+        .add-btn {
+            width: 100%;
+            padding: 13px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 9px;
+            background: #4ade80;
+            color: #06110a;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .add-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* TRANSACTION HEADER */
+
+        .transaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search {
+            max-width: 240px;
+        }
+
+        /* TRANSACTIONS */
+
+        .transactions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .transaction {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px;
+            background: #182138;
+            border: 1px solid #293650;
+            border-radius: 12px;
+        }
+
+        body.light .transaction {
+            background: #f8fafc;
+            border-color: #e5e7eb;
+        }
+
+        .transaction-icon {
+            width: 43px;
+            height: 43px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            background: #26314b;
+            font-size: 20px;
+        }
+
+        body.light .transaction-icon {
+            background: #eef2ff;
+        }
+
+        .transaction-info {
+            flex: 1;
+        }
+
+        .transaction-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .transaction-meta {
+            color: #8995aa;
+            font-size: 13px;
+        }
+
+        .transaction-amount {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .income-text {
+            color: #4ade80;
+        }
+
+        .expense-text {
+            color: #fb7185;
+        }
+
+        .delete-btn {
+            border: none;
+            background: transparent;
+            color: #fb7185;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        /* CHART */
+
+        .chart-panel {
+            margin-bottom: 25px;
+        }
+
+        .chart {
+            height: 220px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            gap: 12px;
+            padding: 20px 10px 0;
+            border-bottom: 1px solid #293650;
+        }
+
+        body.light .chart {
+            border-color: #e5e7eb;
+        }
+
+        .bar-wrapper {
+            height: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bar {
+            width: 100%;
+            max-width: 55px;
+            min-height: 5px;
+            border-radius: 8px 8px 0 0;
+            background: #4ade80;
+            transition: height 0.5s;
+        }
+
+        .bar-label {
+            color: #8995aa;
+            font-size: 12px;
+        }
+
+        /* EMPTY */
+
+        .empty {
+            text-align: center;
+            padding: 40px 15px;
+            color: #8995aa;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #8995aa;
+            border-top: 1px solid #26314b;
+        }
+
+        body.light footer {
+            border-color: #e5e7eb;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .transaction-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search {
+                max-width: none;
+            }
+
+            .transaction {
+                padding: 12px;
+            }
+
+            .transaction-icon {
+                display: none;
+            }
+
+            .transaction-amount {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            MoneyTrack 💰
+        </div>
+
+        <button
+            class="theme-btn"
+            onclick="toggleTheme()"
+            id="themeBtn">
+            🌙
+        </button>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <h1>
+            Take Control of <span>Your Money.</span>
+        </h1>
+
+        <p>
+            Track income, expenses and your monthly spending
+            with a simple personal finance dashboard.
+        </p>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- SUMMARY -->
+
+        <section class="summary">
+
+            <div class="summary-card">
+
+                <h3>TOTAL BALANCE</h3>
+
+                <div
+                    class="amount"
+                    id="balance">
+                    $0.00
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <h3>TOTAL INCOME</h3>
+
+                <div
+                    class="amount income"
+                    id="income">
+                    $0.00
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <h3>TOTAL EXPENSES</h3>
+
+                <div
+                    class="amount expense"
+                    id="expenses">
+                    $0.00
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MAIN -->
+
+        <section class="main-grid">
+
+
+            <!-- ADD TRANSACTION -->
+
+            <div class="panel">
+
+                <h2>Add Transaction</h2>
+
+                <form id="transactionForm">
+
+
+                    <label for="title">
+                        Description
+                    </label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="e.g. Freelance Project"
+                        required
+                    >
+
+
+                    <label for="amount">
+                        Amount ($)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="0.00"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+
+
+                    <label for="type">
+                        Type
+                    </label>
+
+                    <select id="type">
+
+                        <option value="income">
+                            Income
+                        </option>
+
+                        <option value="expense">
+                            Expense
+                        </option>
+
+                    </select>
+
+
+                    <label for="category">
+                        Category
+                    </label>
+
+                    <select id="category">
+
+                        <option value="Work">
+                            💼 Work
+                        </option>
+
+                        <option value="Food">
+                            🍔 Food
+                        </option>
+
+                        <option value="Shopping">
+                            🛍️ Shopping
+                        </option>
+
+                        <option value="Transport">
+                            🚗 Transport
+                        </option>
+
+                        <option value="Education">
+                            📚 Education
+                        </option>
+
+                        <option value="Entertainment">
+                            🎮 Entertainment
+                        </option>
+
+                        <option value="Other">
+                            📦 Other
+                        </option>
+
+                    </select>
+
+
+                    <label for="date">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                    >
+
+
+                    <button
+                        type="submit"
+                        class="add-btn">
+                        + Add Transaction
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+
+            <div>
+
+
+                <!-- CHART -->
+
+                <div class="panel chart-panel">
+
+                    <h2>
+                        Spending Overview
+                    </h2>
+
+                    <div
+                        class="chart"
+                        id="chart">
+                    </div>
+
+                </div>
+
+
+                <!-- TRANSACTIONS -->
+
+                <div class="panel">
+
+                    <div class="transaction-header">
+
+                        <h2>
+                            Transactions
+                        </h2>
+
+                        <input
+                            class="search"
+                            type="text"
+                            id="search"
+                            placeholder="Search..."
+                        >
+
+                    </div>
+
+
+                    <div
+                        class="transactions"
+                        id="transactionList">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 MoneyTrack — Built with HTML, CSS & JavaScript.
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        /* ELEMENTS */
+
+        const form =
+            document.getElementById("transactionForm");
+
+        const titleInput =
+            document.getElementById("title");
+
+        const amountInput =
+            document.getElementById("amount");
+
+        const typeInput =
+            document.getElementById("type");
+
+        const categoryInput =
+            document.getElementById("category");
+
+        const dateInput =
+            document.getElementById("date");
+
+        const transactionList =
+            document.getElementById("transactionList");
+
+        const searchInput =
+            document.getElementById("search");
+
+        const balanceElement =
+            document.getElementById("balance");
+
+        const incomeElement =
+            document.getElementById("income");
+
+        const expensesElement =
+            document.getElementById("expenses");
+
+        const chart =
+            document.getElementById("chart");
+
+        const themeBtn =
+            document.getElementById("themeBtn");
+
+
+        /* LOAD DATA */
+
+        let transactions =
+            JSON.parse(
+                localStorage.getItem("moneyTrackData")
+            ) || [];
+
+
+        /* SAVE DATA */
+
+        function saveData() {
+
+            localStorage.setItem(
+                "moneyTrackData",
+                JSON.stringify(transactions)
+            );
+
+        }
+
+
+        /* ADD TRANSACTION */
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            const transaction = {
+
+                id: Date.now(),
+
+                title:
+                    titleInput.value.trim(),
+
+                amount:
+                    Number(amountInput.value),
+
+                type:
+                    typeInput.value,
+
+                category:
+                    categoryInput.value,
+
+                date:
+                    dateInput.value ||
+                    new Date().toISOString().split("T")[0]
+
+            };
+
+
+            transactions.unshift(transaction);
+
+            saveData();
+
+            form.reset();
+
+            render();
+
+        });
+
+
+        /* RENDER */
+
+        function render() {
+
+            renderTransactions();
+
+            updateSummary();
+
+            renderChart();
+
+        }
+
+
+        /* TRANSACTIONS */
+
+        function renderTransactions() {
+
+            const searchTerm =
+                searchInput.value
+                    .toLowerCase()
+                    .trim();
+
+
+            const filtered =
+                transactions.filter(function(item) {
+
+                    return (
+                        item.title
+                            .toLowerCase()
+                            .includes(searchTerm)
+                        ||
+                        item.category
+                            .toLowerCase()
+                            .includes(searchTerm)
+                    );
+
+                });
+
+
+            transactionList.innerHTML = "";
+
+
+            if (filtered.length === 0) {
+
+                transactionList.innerHTML = `
+                    <div class="empty">
+                        <div style="font-size:40px;">
+                            💸
+                        </div>
+
+                        <p>
+                            No transactions found.
+                        </p>
+
+                        <small>
+                            Add your first transaction above.
+                        </small>
+                    </div>
+                `;
+
+                return;
+
+            }
+
+
+            filtered.forEach(function(item) {
+
+                const div =
+                    document.createElement("div");
+
+                div.className =
+                    "transaction";
+
+
+                const sign =
+                    item.type === "income"
+                    ? "+"
+                    : "-";
+
+
+                const amountClass =
+                    item.type === "income"
+                    ? "income-text"
+                    : "expense-text";
+
+
+                const icon =
+                    getCategoryIcon(item.category);
+
+
+                const date =
+                    new Date(
+                        item.date + "T00:00:00"
+                    ).toLocaleDateString();
+
+
+                div.innerHTML = `
+
+                    <div class="transaction-icon">
+                        ${icon}
+                    </div>
+
+                    <div class="transaction-info">
+
+                        <div class="transaction-title">
+                            ${escapeHTML(item.title)}
+                        </div>
+
+                        <div class="transaction-meta">
+                            ${escapeHTML(item.category)}
+                            •
+                            ${date}
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="transaction-amount ${amountClass}">
+                        ${sign}$${item.amount.toFixed(2)}
+                    </div>
+
+                    <button
+                        class="delete-btn"
+                        onclick="deleteTransaction(${item.id})"
+                        title="Delete">
+                        🗑
+                    </button>
+
+                `;
+
+
+                transactionList.appendChild(div);
+
+            });
+
+        }
+
+
+        /* DELETE */
+
+        function deleteTransaction(id) {
+
+            transactions =
+                transactions.filter(function(item) {
+
+                    return item.id !== id;
+
+                });
+
+
+            saveData();
+
+            render();
+
+        }
+
+
+        /* SUMMARY */
+
+        function updateSummary() {
+
+            let income = 0;
+
+            let expenses = 0;
+
+
+            transactions.forEach(function(item) {
+
+                if (item.type === "income") {
+
+                    income += item.amount;
+
+                } else {
+
+                    expenses += item.amount;
+
+                }
+
+            });
+
+
+            const balance =
+                income - expenses;
+
+
+            balanceElement.textContent =
+                "$" + balance.toFixed(2);
+
+            incomeElement.textContent =
+                "$" + income.toFixed(2);
+
+            expensesElement.textContent =
+                "$" + expenses.toFixed(2);
+
+        }
+
+
+        /* CHART */
+
+        function renderChart() {
+
+            chart.innerHTML = "";
+
+
+            const categories = {
+
+                Work: 0,
+                Food: 0,
+                Shopping: 0,
+                Transport: 0,
+                Education: 0,
+                Entertainment: 0,
+                Other: 0
+
+            };
+
+
+            transactions.forEach(function(item) {
+
+                if (
+                    item.type === "expense" &&
+                    categories[item.category] !== undefined
+                ) {
+
+                    categories[item.category] +=
+                        item.amount;
+
+                }
+
+            });
+
+
+            const values =
+                Object.values(categories);
+
+
+            const max =
+                Math.max(...values, 1);
+
+
+            Object.entries(categories)
+                .forEach(function([category, value]) {
+
+                    const wrapper =
+                        document.createElement("div");
+
+                    wrapper.className =
+                        "bar-wrapper";
+
+
+                    const bar =
+                        document.createElement("div");
+
+                    bar.className =
+                        "bar";
+
+
+                    const height =
+                        value === 0
+                        ? 5
+                        : Math.max(
+                            (value / max) * 160,
+                            10
+                        );
+
+
+                    bar.style.height =
+                        height + "px";
+
+
+                    const label =
+                        document.createElement("div");
+
+                    label.className =
+                        "bar-label";
+
+                    label.textContent =
+                        category.substring(0, 4);
+
+
+                    wrapper.appendChild(bar);
+
+                    wrapper.appendChild(label);
+
+                    chart.appendChild(wrapper);
+
+                });
+
+        }
+
+
+        /* CATEGORY ICON */
+
+        function getCategoryIcon(category) {
+
+            const icons = {
+
+                Work: "💼",
+                Food: "🍔",
+                Shopping: "🛍️",
+                Transport: "🚗",
+                Education: "📚",
+                Entertainment: "🎮",
+                Other: "📦"
+
+            };
+
+
+            return icons[category] || "📦";
+
+        }
+
+
+        /* SEARCH */
+
+        searchInput.addEventListener(
+            "input",
+            renderTransactions
+        );
+
+
+        /* THEME */
+
+        function toggleTheme() {
+
+            document.body.classList.toggle("light");
+
+
+            const isLight =
+                document.body.classList.contains("light");
+
+
+            themeBtn.textContent =
+                isLight ? "☀️" : "🌙";
+
+
+            localStorage.setItem(
+                "moneyTrackTheme",
+                isLight ? "light" : "dark"
+            );
+
+        }
+
+
+        /* LOAD THEME */
+
+        const savedTheme =
+            localStorage.getItem("moneyTrackTheme");
+
+
+        if (savedTheme === "light") {
+
+            document.body.classList.add("light");
+
+            themeBtn.textContent = "☀️";
+
+        }
+
+
+        /* SECURITY */
+
+        function escapeHTML(text) {
+
+            const div =
+                document.createElement("div");
+
+            div.textContent = text;
+
+            return div.innerHTML;
+
+        }
+
+
+        /* START */
+
+        render();
+
+    </script>
+
+</body>
+</html>
