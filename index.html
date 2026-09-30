@@ -1,265 +1,408 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uneeb ur Rehman | Web Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    <meta
+        name="description"
+        content="Uneeb Ur Rehman - Frontend Web Developer portfolio. Explore responsive websites and web projects built with HTML, CSS and JavaScript."
+    >
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #0b0f19;
-      color: white;
-      line-height: 1.6;
-    }
+    <title>Uneeb Ur Rehman | Frontend Web Developer</title>
 
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: #0b0f19;
-      border-bottom: 1px solid #222938;
-      padding: 18px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    nav a {
-      color: #bbb;
-      text-decoration: none;
-      margin-left: 25px;
-    }
-
-    nav a:hover {
-      color: white;
-    }
-
-    .hero {
-      min-height: 85vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .hero-content {
-      max-width: 800px;
-    }
-
-    .hero h1 {
-      font-size: clamp(42px, 8vw, 80px);
-      margin-bottom: 15px;
-    }
-
-    .hero h1 span {
-      color: #6c63ff;
-    }
-
-    .hero p {
-      color: #aaa;
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 28px;
-      background: #6c63ff;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      opacity: 0.9;
-    }
-
-    section {
-      padding: 80px 8%;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 36px;
-      margin-bottom: 45px;
-    }
-
-    .about {
-      max-width: 750px;
-      margin: auto;
-      text-align: center;
-      color: #aaa;
-      font-size: 18px;
-    }
-
-    .cards {
-      max-width: 1000px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: #121827;
-      padding: 30px;
-      border: 1px solid #222938;
-      border-radius: 14px;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: #6c63ff;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #999;
-    }
-
-    .contact {
-      text-align: center;
-    }
-
-    .contact p {
-      color: #aaa;
-      margin-bottom: 25px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      border-top: 1px solid #222938;
-      color: #777;
-    }
-
-    @media (max-width: 700px) {
-      nav {
-        padding: 15px 5%;
-      }
-
-      nav a {
-        margin-left: 10px;
-        font-size: 14px;
-      }
-
-      section {
-        padding: 60px 5%;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <nav>
-    <div class="logo">Uneeb.</div>
+    <!-- ================= NAVBAR ================= -->
 
-    <div>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+    <header class="navbar">
+        <div class="container nav-container">
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Hi, I'm <span>Uneeb ur Rehman</span></h1>
+            <a href="#home" class="logo">
+                Uneeb<span>.</span>
+            </a>
 
-      <p>
-        Beginner Web Developer creating modern and responsive websites.
-      </p>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
 
-      <a href="#services" class="btn">
-        Explore My Work
-      </a>
-    </div>
-  </section>
+        </div>
+    </header>
 
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
 
-    <div class="about">
-      <p>
-        I'm learning web development and building websites with
-        HTML and CSS. I'm passionate about creating clean,
-        simple and user-friendly websites.
-      </p>
-    </div>
-  </section>
+    <main>
 
-  <section id="services">
-    <h2 class="section-title">What I Can Do</h2>
+        <!-- ================= HERO ================= -->
 
-    <div class="cards">
+        <section id="home" class="hero">
 
-      <div class="card">
-        <h3>🌐 Website Design</h3>
-        <p>
-          Clean and modern websites for personal projects
-          and small businesses.
-        </p>
-      </div>
+            <div class="container hero-content">
 
-      <div class="card">
-        <h3>📱 Responsive Design</h3>
-        <p>
-          Websites that work nicely on phones, tablets
-          and computers.
-        </p>
-      </div>
+                <div class="hero-text">
 
-      <div class="card">
-        <h3>🎨 Landing Pages</h3>
-        <p>
-          Simple landing pages for products, services
-          and online projects.
-        </p>
-      </div>
+                    <p class="eyebrow">
+                        FRONTEND WEB DEVELOPER
+                    </p>
 
-    </div>
-  </section>
+                    <h1>
+                        Hi, I'm <span>Uneeb</span>.
+                        <br>
+                        I build modern websites.
+                    </h1>
 
-  <section id="contact" class="contact">
-    <h2 class="section-title">Let's Work Together</h2>
+                    <p class="hero-description">
+                        I create clean, responsive and user-friendly
+                        websites using HTML, CSS and JavaScript.
+                    </p>
 
-    <p>
-      Have a project in mind? Feel free to contact me.
-    </p>
+                    <div class="hero-buttons">
 
-    <a href="mailto:your@email.com" class="btn">
-      Contact Me
-    </a>
-  </section>
+                        <a href="#projects" class="btn btn-primary">
+                            View My Projects
+                        </a>
 
-  <footer>
-    © 2026 Uneeb ur Rehman. All rights reserved.
-  </footer>
+                        <a
+                            href="https://github.com/uneeburrehman403-del"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-secondary"
+                        >
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section id="about" class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        ABOUT ME
+                    </p>
+
+                    <h2>
+                        Turning ideas into websites.
+                    </h2>
+
+                </div>
+
+                <div class="about-content">
+
+                    <p>
+                        I'm a frontend web developer focused on building
+                        responsive and modern websites. I enjoy turning
+                        ideas into clean and functional web experiences.
+                    </p>
+
+                    <p>
+                        I'm continuously improving my JavaScript skills
+                        and building practical projects to grow as a
+                        professional web developer.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section id="skills" class="section skills-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        SKILLS
+                    </p>
+
+                    <h2>
+                        Technologies I use.
+                    </h2>
+
+                </div>
+
+                <div class="skills-grid">
+
+                    <div class="skill-card">
+                        <div class="skill-number">01</div>
+                        <h3>HTML5</h3>
+                        <p>
+                            Semantic and well-structured web pages.
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-number">02</div>
+                        <h3>CSS3</h3>
+                        <p>
+                            Responsive layouts, styling and animations.
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-number">03</div>
+                        <h3>JavaScript</h3>
+                        <p>
+                            Interactive features and dynamic
+                            web experiences.
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-number">04</div>
+                        <h3>Git & GitHub</h3>
+                        <p>
+                            Version control and project management.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROJECTS ================= -->
+
+        <section id="projects" class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        PROJECTS
+                    </p>
+
+                    <h2>
+                        Things I've built.
+                    </h2>
+
+                </div>
+
+                <div class="projects-grid">
+
+                    <!-- PROJECT 1 -->
+
+                    <article class="project-card">
+
+                        <div class="project-top">
+
+                            <span class="project-type">
+                                PERSONAL PROJECT
+                            </span>
+
+                            <span class="project-number">
+                                01
+                            </span>
+
+                        </div>
+
+                        <div class="project-body">
+
+                            <h3>
+                                Urban Bites
+                            </h3>
+
+                            <p>
+                                A responsive restaurant website with
+                                a modern layout, menu section and
+                                clean user interface.
+                            </p>
+
+                            <div class="tech-list">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+
+                            <a
+                                href="https://uneeburrehman403-del.github.io/MY-FIRST-PROJECT/restaurant.html"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-link"
+                            >
+                                View Live Project
+                                <span>↗</span>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJECT 2 -->
+
+                    <article class="project-card">
+
+                        <div class="project-top">
+
+                            <span class="project-type">
+                                COMING SOON
+                            </span>
+
+                            <span class="project-number">
+                                02
+                            </span>
+
+                        </div>
+
+                        <div class="project-body">
+
+                            <h3>
+                                Business Landing Page
+                            </h3>
+
+                            <p>
+                                A professional responsive landing page
+                                designed for a fictional business.
+                            </p>
+
+                            <div class="tech-list">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+
+                            <span class="project-link disabled">
+                                Coming Soon
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJECT 3 -->
+
+                    <article class="project-card">
+
+                        <div class="project-top">
+
+                            <span class="project-type">
+                                COMING SOON
+                            </span>
+
+                            <span class="project-number">
+                                03
+                            </span>
+
+                        </div>
+
+                        <div class="project-body">
+
+                            <h3>
+                                JavaScript Web App
+                            </h3>
+
+                            <p>
+                                An interactive web application focused
+                                on JavaScript functionality and DOM
+                                manipulation.
+                            </p>
+
+                            <div class="tech-list">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+
+                            <span class="project-link disabled">
+                                Coming Soon
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section id="contact" class="section contact-section">
+
+            <div class="container contact-content">
+
+                <p class="section-label">
+                    AVAILABLE FOR WORK
+                </p>
+
+                <h2>
+                    Let's build something together.
+                </h2>
+
+                <p>
+                    I'm currently open to junior frontend opportunities
+                    and freelance web development projects.
+                </p>
+
+                <a
+                    href="https://github.com/uneeburrehman403-del"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+                    Visit My GitHub
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <p>
+                © 2026 Uneeb Ur Rehman
+            </p>
+
+            <a
+                href="https://github.com/uneeburrehman403-del"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub ↗
+            </a>
+
+        </div>
+
+    </footer>
+
 
 </body>
 </html>
+```
